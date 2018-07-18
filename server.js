@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import User from './src/models/users';
-import Movie from './src/models/movies';
 import {createToken} from './src/resolvers/create';
 import graphQLHTTP from 'express-graphql';
 import schema from './src/graphql';
@@ -30,16 +30,6 @@ app.post('/signup',(req,res)=>{
     })
 });
 
-app.post('/nmovie',(req,res)=>{
-    let movie = req.body
-    Movie.create(movie).then((movie)=>{
-        return res.status(201).json({"message":"Pelicula Creada",
-        "id":movie._id})
-    }).catch((err)=>{
-        console.log(err);
-        return res.json(err)
-    })
-});
 
 app.post('/login', (req,res)=>{
     const token = createToken(req.body.email,req.body.password).then((token)=>{
