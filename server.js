@@ -19,6 +19,8 @@ db.on('error',()=>console.log("Error al conectar a la BD"))
 
 app.use(bodyParser.json());
 
+app.use(cors()); //se especifica la lista negra y blanca
+
 app.post('/signup',(req,res)=>{
     let user = req.body
     User.create(user).then((user)=>{
