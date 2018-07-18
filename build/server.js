@@ -8,6 +8,10 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
+var _cors = require('cors');
+
+var _cors2 = _interopRequireDefault(_cors);
+
 var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
@@ -15,10 +19,6 @@ var _bodyParser2 = _interopRequireDefault(_bodyParser);
 var _users = require('./src/models/users');
 
 var _users2 = _interopRequireDefault(_users);
-
-var _movies = require('./src/models/movies');
-
-var _movies2 = _interopRequireDefault(_movies);
 
 var _create = require('./src/resolvers/create');
 
@@ -53,17 +53,6 @@ app.post('/signup', function (req, res) {
     _users2.default.create(user).then(function (user) {
         return res.status(201).json({ "message": "Usuario Creado",
             "id": user._id });
-    }).catch(function (err) {
-        console.log(err);
-        return res.json(err);
-    });
-});
-
-app.post('/nmovie', function (req, res) {
-    var movie = req.body;
-    _movies2.default.create(movie).then(function (movie) {
-        return res.status(201).json({ "message": "Pelicula Creada",
-            "id": movie._id });
     }).catch(function (err) {
         console.log(err);
         return res.json(err);
