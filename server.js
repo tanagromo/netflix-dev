@@ -10,7 +10,7 @@ import {verifyToken} from './src/resolvers/verify';
 
 const app = express();
 //variable de entorno
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3008
 
 mongoose.connect('mongodb://admin:admin123@ds125841.mlab.com:25841/netflix-dev')
 const db = mongoose.connection;

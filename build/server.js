@@ -36,7 +36,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 //variable de entorno
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3008;
 
 _mongoose2.default.connect('mongodb://admin:admin123@ds125841.mlab.com:25841/netflix-dev');
 var db = _mongoose2.default.connection;
